@@ -1,0 +1,3 @@
+﻿  test.cpp
+E:\vs2019\导入_导出\4月\BinarySearchTree\BinarySearchTree\BinartSearchTree.h(167): warning C4715: “BSTree<int>::Erase”: 不是所有的控件路径都返回值
+  BinarySearchTree.vcxproj -> E:\vs2019\导入_导出\4月\BinarySearchTree\Debug\BinarySearchTree.exe
