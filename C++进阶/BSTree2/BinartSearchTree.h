@@ -103,15 +103,15 @@ namespace K
 
 	public:
 
-		//¹¹Ôìº¯Êı
+		//æ„é€ å‡½æ•°
 		BSTree()
 			:_root(nullptr)
 		{}
 
-		//²åÈë£¬ÓÃ²¼¶ûÀ´ÅĞ¶Ï²¢ÇÒ²åÈë
+		//æ’å…¥ï¼Œç”¨å¸ƒå°”æ¥åˆ¤æ–­å¹¶ä¸”æ’å…¥
 		bool Insert(const K& key)
 		{
-			//Ã»ÓĞÊı¾ÍÊÇµÚÒ»¸ö
+			//æ²¡æœ‰æ•°å°±æ˜¯ç¬¬ä¸€ä¸ª
 			if (_root == nullptr)
 			{
 				_root = new Node(key);
@@ -122,13 +122,13 @@ namespace K
 			Node* parent = cur;
 			while (cur)
 			{
-				//Ğ¡ÓÚ¾ÍÔÚ×ó×ÓÊ÷
+				//å°äºå°±åœ¨å·¦å­æ ‘
 				if (cur->_key > key)
 				{
 					parent = cur;
 					cur = cur->left;
 				}
-				//´óÓÚ¾ÍÔÚÓÒ×ÓÊ÷
+				//å¤§äºå°±åœ¨å³å­æ ‘
 				else if (cur->_key < key)
 				{
 					parent = cur;
@@ -136,7 +136,7 @@ namespace K
 				}
 				else
 				{
-					cout << "ÒÑ¾­ÓĞÁË" << endl;
+					cout << "å·²ç»æœ‰äº†" << endl;
 					return false;
 				}
 			}
@@ -153,13 +153,13 @@ namespace K
 
 		}
 
-		//µİ¹é°æ±¾
+		//é€’å½’ç‰ˆæœ¬
 		bool InsertR(const K& key)
 		{
 			return _InsertR(_root, key);
 		}
 
-		//É¾³ı
+		//åˆ é™¤
 		bool Erase(const K& key)
 		{
 			Node* cur = _root;
@@ -179,10 +179,10 @@ namespace K
 				}
 				else
 				{
-					//µÚÒ»ÖÖ£¬Ò¶×Ó½Úµã, µÚ¶şÖÖ£¬Ö»ÓĞÒ»¸ö½Úµã
+					//ç¬¬ä¸€ç§ï¼Œå¶å­èŠ‚ç‚¹, ç¬¬äºŒç§ï¼Œåªæœ‰ä¸€ä¸ªèŠ‚ç‚¹
 					if (cur->left == nullptr)
 					{
-						if (cur == _root)//Èç¹ûËü±¾Éí¾ÍÊÇ_rootÁË£¬Ö±½ÓÈ¥µôÍ·
+						if (cur == _root)//å¦‚æœå®ƒæœ¬èº«å°±æ˜¯_rootäº†ï¼Œç›´æ¥å»æ‰å¤´
 						{
 							_root = cur->right;
 						}
@@ -222,7 +222,7 @@ namespace K
 
 						return true;
 					}
-					//µÚÈıÖÖ£¬Á½¸ö½Úµã
+					//ç¬¬ä¸‰ç§ï¼Œä¸¤ä¸ªèŠ‚ç‚¹
 					else
 					{
 						Node* minright = cur->right;
@@ -232,11 +232,11 @@ namespace K
 							minparent = minright;
 							minright = minright->left;
 						}
-						if (minparent->left == minright)//Èç¹ûÊÇÔÚ×ó±ß¾Í¼Ì³Ğ×îĞ¡µÄÓÒ±ß£¬ÒòÎªÓÒ±ß¿ÉÄÜ»¹ÓĞÖµ
+						if (minparent->left == minright)//å¦‚æœæ˜¯åœ¨å·¦è¾¹å°±ç»§æ‰¿æœ€å°çš„å³è¾¹ï¼Œå› ä¸ºå³è¾¹å¯èƒ½è¿˜æœ‰å€¼
 						{
 							minparent->left = minright->right;
 						}
-						else//±ÜÃâµÚÒ»¸ö¾ÍÃ»ÓĞ×ó±ß
+						else//é¿å…ç¬¬ä¸€ä¸ªå°±æ²¡æœ‰å·¦è¾¹
 						{
 							minparent->right = minright->right;
 						}
@@ -251,20 +251,20 @@ namespace K
 			return true;
 		}//end of bool
 
-		//µİ¹é°æ±¾
+		//é€’å½’ç‰ˆæœ¬
 		bool EraseR(const K& key)
 		{
 			return _EraseR(_root, key);
 		}
 
-		//´òÓ¡
+		//æ‰“å°
 		void InOrder()
 		{
 			Print(_root);
 			cout << endl;
 		}
 
-		//Îö¹¹
+		//ææ„
 		~BSTree()
 		{
 			delete _root;
@@ -307,7 +307,7 @@ namespace KV
 				return;
 
 			Print(cur->left);
-			cout << cur->_key << " --³öÏÖ´ÎÊı: " << cur->_value << endl;
+			cout << cur->_key << " --å‡ºç°æ¬¡æ•°: " << cur->_value << endl;
 			Print(cur->right);
 		}
 
@@ -425,7 +425,7 @@ namespace KV
 
 	public:
 
-		//¹¹Ôìº¯Êı
+		//æ„é€ å‡½æ•°
 		BSTree()
 			:_root(nullptr)
 		{}
@@ -435,16 +435,16 @@ namespace KV
 			_root = _Copy(BS._root);
 		}
 
-		BSTree<K, V>& operator=(const BSTree<K, V>& BS)
+		BSTree<K, V>& operator=(BSTree<K, V> BS)
 		{
 			swap(BS._root, _root);
 			return *this;
 		}
 
-		//²åÈë£¬ÓÃ²¼¶ûÀ´ÅĞ¶Ï²¢ÇÒ²åÈë
+		//æ’å…¥ï¼Œç”¨å¸ƒå°”æ¥åˆ¤æ–­å¹¶ä¸”æ’å…¥
 		bool Insert(const K& key, const V& value)
 		{
-			//Ã»ÓĞÊı¾ÍÊÇµÚÒ»¸ö
+			//æ²¡æœ‰æ•°å°±æ˜¯ç¬¬ä¸€ä¸ª
 			if (_root == nullptr)
 			{
 				_root = new Node(key);
@@ -455,13 +455,13 @@ namespace KV
 			Node* parent = cur;
 			while (cur)
 			{
-				//Ğ¡ÓÚ¾ÍÔÚ×ó×ÓÊ÷
+				//å°äºå°±åœ¨å·¦å­æ ‘
 				if (cur->_key > key)
 				{
 					parent = cur;
 					cur = cur->left;
 				}
-				//´óÓÚ¾ÍÔÚÓÒ×ÓÊ÷
+				//å¤§äºå°±åœ¨å³å­æ ‘
 				else if (cur->_key < key)
 				{
 					parent = cur;
@@ -469,7 +469,7 @@ namespace KV
 				}
 				else
 				{
-					cout << "ÒÑ¾­ÓĞÁË" << endl;
+					cout << "å·²ç»æœ‰äº†" << endl;
 					return false;
 				}
 			}
@@ -486,13 +486,13 @@ namespace KV
 
 		}
 
-		//µİ¹é°æ±¾
+		//é€’å½’ç‰ˆæœ¬
 		bool InsertR(const K& key, const V& value)
 		{
 			return _InsertR(_root, key, value);
 		}
 
-		//É¾³ı
+		//åˆ é™¤
 		bool Erase(const K& key)
 		{
 			Node* cur = _root;
@@ -512,10 +512,10 @@ namespace KV
 				}
 				else
 				{
-					//µÚÒ»ÖÖ£¬Ò¶×Ó½Úµã, µÚ¶şÖÖ£¬Ö»ÓĞÒ»¸ö½Úµã
+					//ç¬¬ä¸€ç§ï¼Œå¶å­èŠ‚ç‚¹, ç¬¬äºŒç§ï¼Œåªæœ‰ä¸€ä¸ªèŠ‚ç‚¹
 					if (cur->left == nullptr)
 					{
-						if (cur == _root)//Èç¹ûËü±¾Éí¾ÍÊÇ_rootÁË£¬Ö±½ÓÈ¥µôÍ·
+						if (cur == _root)//å¦‚æœå®ƒæœ¬èº«å°±æ˜¯_rootäº†ï¼Œç›´æ¥å»æ‰å¤´
 						{
 							_root = cur->right;
 						}
@@ -555,7 +555,7 @@ namespace KV
 
 						return true;
 					}
-					//µÚÈıÖÖ£¬Á½¸ö½Úµã
+					//ç¬¬ä¸‰ç§ï¼Œä¸¤ä¸ªèŠ‚ç‚¹
 					else
 					{
 						Node* minright = cur->right;
@@ -565,11 +565,11 @@ namespace KV
 							minparent = minright;
 							minright = minright->left;
 						}
-						if (minparent->left == minright)//Èç¹ûÊÇÔÚ×ó±ß¾Í¼Ì³Ğ×îĞ¡µÄÓÒ±ß£¬ÒòÎªÓÒ±ß¿ÉÄÜ»¹ÓĞÖµ
+						if (minparent->left == minright)//å¦‚æœæ˜¯åœ¨å·¦è¾¹å°±ç»§æ‰¿æœ€å°çš„å³è¾¹ï¼Œå› ä¸ºå³è¾¹å¯èƒ½è¿˜æœ‰å€¼
 						{
 							minparent->left = minright->right;
 						}
-						else//±ÜÃâµÚÒ»¸ö¾ÍÃ»ÓĞ×ó±ß
+						else//é¿å…ç¬¬ä¸€ä¸ªå°±æ²¡æœ‰å·¦è¾¹
 						{
 							minparent->right = minright->right;
 						}
@@ -584,7 +584,7 @@ namespace KV
 
 		}//end of bool
 
-		//µİ¹é°æ±¾
+		//é€’å½’ç‰ˆæœ¬
 		bool EraseR(const K& key)
 		{
 			return _EraseR(_root, key);
@@ -595,14 +595,14 @@ namespace KV
 			return _FindR(_root, key);
 		}
 
-		//´òÓ¡
+		//æ‰“å°
 		void InOrder()
 		{
 			Print(_root);
 			cout << endl;
 		}
 
-		//Îö¹¹
+		//ææ„
 		~BSTree()
 		{
 			_Destroy(_root);
